@@ -25,9 +25,7 @@ function App() {
   const addContact = (name, phoneNumber, email) => {
     setContact(prev => [
       ...prev, {
-        name: name,
-        phoneNumber: phoneNumber,
-        email: email
+        name, phoneNumber, email
       }
     ]);       
   }
@@ -35,10 +33,7 @@ function App() {
  const addAppointment = (title, contact, date, time) => {
    setAppointment(prev => [
      ...prev, {
-       title: title,
-       contact: contact,
-       date: date,
-       time: time
+       title, contact,date,time
      }
    ]);
  }
@@ -68,6 +63,7 @@ function App() {
           <Route path={ROUTES.APPOINTMENTS}>
             {/* Add props to AppointmentsPage */}
             <AppointmentsPage 
+            contacts={contacts}
             appointments={appointments} 
             addAppointment={addAppointment} 
             />

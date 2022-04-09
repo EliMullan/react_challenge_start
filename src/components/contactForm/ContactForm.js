@@ -9,6 +9,19 @@ export const ContactForm = ({
   setEmail,
   handleSubmit
 }) => {
+  const handleNameChange = e => {
+    setName(e.target.value);
+  }
+
+  const handlePhoneChange = e => {
+    setPhone(e.target.value);
+   }
+
+   const handleEmailChange = e => {
+     setEmail(e.target.value);
+   }
+
+
   return (
     <form 
       onSubmit={handleSubmit}>
@@ -16,19 +29,20 @@ export const ContactForm = ({
       <input 
       type='text'
       value={name}
-      onChange={setName}
+      onChange={handleNameChange}
       />
       <label>Phone Number</label>
       <input 
       type='tel'
       value={phone}
-      onChange={setPhone}
+      pattern="/^(0[124-9]\d{0,2})\d{7}$/g"
+      onChange={handlePhoneChange}
       />
       <label>email</label>
       <input
       type='email'
       value={email}
-      onChange={setEmail} />
+      onChange={handleEmailChange} />
       <input 
       type='submit'
        />
